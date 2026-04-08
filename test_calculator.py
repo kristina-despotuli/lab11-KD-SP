@@ -2,13 +2,15 @@ import unittest
 from calculator import *
 
 class TestCalculator(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 5), 7)
+        self.assertEqual(add(-1, 10), 9)
+        self.assertNotEqual(add(5, 10), 20)
     ######### Partner 2
-    # def test_add(self): # 3 assertions
-    #     fill in code
-
-    # def test_subtract(self): # 3 assertions
-    #     fill in code
-    # ##########################
+    def test_subtract(self): # 3 assertions
+        self.assertEqual(subtract(10, 5), 5)
+        self.assertEqual(subtract(-1, 5), -6)
+        self.assertNotEqual(subtract(10, 15), 5)
 
     ######## Partner 1
     def test_multiply(self): # 3 assertions
@@ -23,16 +25,21 @@ class TestCalculator(unittest.TestCase):
     # ##########################
 
     ######## Partner 2
-    # def test_divide_by_zero(self): # 1 assertion
+    def test_divide_by_zero(self): # 1 assertion
+        self.assertRaises(ZeroDivisionError, div(0, 5))
     #     # call division function inside, example:
     #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
     #     #     div(0, 5)
     #     fill in code
 
-    # def test_logarithm(self): # 3 assertions
-    #     fill in code
+    def test_logarithm(self): # 3 assertions
 
-    # def test_log_invalid_base(self): # 1 assertion
+        self.assertEqual(logarithm(8, 2), 3)
+        self.assertEqual(logarithm(9, 3), 2)
+        self.assertNotEqual(logarithm(100, 10), 3)
+
+    def test_log_invalid_base(self): # 1 assertion
+        self.assertRaises(ValueError, logarithm(0, 5))
     #     # use same technique from test_divide_by_zero
     #     fill in code
     # ##########################
